@@ -18,26 +18,26 @@ const Carrito = () => {
             {/* el index siempre es el segundo parámetro del método map() */}
             {carrito.map((prods, index) => (
               <ListGroup.Item className="p-0 border-0">
-                <div className="py-2 d-flex justify-content-between"
+                <div className="py-2 flex justify-between"
                 style={{borderBottom:"1px solid olivedrab"}}>
-                  <div className="d-flex hover" onClick={() => navigate(`/pizza/${prods.id}`)}>
+                  <div className="flex hover" onClick={() => navigate(`/pizza/${prods.id}`)}>
                     <div>
                       <img src={prods.img} alt={prods.name} className="imgCarrito"/>
                     </div>
-                    <div className="ms-3 d-flex flex-column justify-content-center">
+                    <div className="ms-3 flex flex-col justify-center">
                       <h6 className="text-capitalize">Pizza {prods.name}</h6>
                     </div>
                   </div>
-                  <div className="d-flex">
+                  <div className="flex">
                     <div>
                       <h6 className="mb-0 p-2 text-success">
                         {formatToCLP(prods.price * prods.count)}
                       </h6>
                     </div>
                     <div>
-                      <Button variant="danger" onClick={() => decrement(index)}><b>-</b></Button>
+                      <Button  className ="bg-destructive text-destructive-foreground px-2 py-1 rounded mr-2" onClick={() => decrement(index)}><b>-</b></Button>
                       <strong className="mx-3">{prods.count}</strong>
-                      <Button variant="primary" onClick={() => increment(index)}><b>+</b></Button>
+                      <Button className="bg-primary text-primary-foreground px-2 py-1 rounded ml-2" onClick={() => increment(index)}><b>+</b></Button>
                     </div>
                   </div>
                 </div>
@@ -45,7 +45,7 @@ const Carrito = () => {
             ))}
             <ListGroup.Item className="pt-4 px-0 border-0">
               <h3>Total: {formatToCLP(total)}</h3>
-              <Button className="bg-green-500 hover:bg-green-600 rounded" >Ir a Pagar</Button>
+              <Button className=" w-24 mt-4 bg-green-500 hover:bg-green-600 rounded" >Ir a Pagar</Button>
             </ListGroup.Item>
           </div>
         </ListGroup>
